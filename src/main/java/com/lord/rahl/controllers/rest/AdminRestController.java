@@ -1,7 +1,7 @@
 package com.lord.rahl.controllers.rest;
 
 import com.lord.rahl.domain.Merchant;
-import com.lord.rahl.impl.MerchantServiceImpl;
+import com.lord.rahl.service.MerchantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AdminRestController {
 
-    private MerchantServiceImpl merchantService;
+    private MerchantService merchantService;
 
     @Autowired
-    public void setMerchantService(MerchantServiceImpl merchantService) {
+    public void setMerchantService(MerchantService merchantService) {
         this.merchantService = merchantService;
     }
 

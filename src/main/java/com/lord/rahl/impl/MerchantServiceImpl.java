@@ -25,7 +25,14 @@ public class MerchantServiceImpl implements MerchantService {
 
     @Override
     public Iterable<Merchant> getAllMerchants() {
-        return null;
+        EntityManager em=emf.createEntityManager();
+        return em.createQuery("from Merchant", Merchant.class).getResultList();
+    }
+
+    @Override
+    public Merchant getOneMerchant(Long id) {
+        EntityManager em=emf.createEntityManager();
+        return em.find(Merchant.class,id);
     }
 
     @Override
@@ -58,6 +65,11 @@ public class MerchantServiceImpl implements MerchantService {
 
     @Override
     public void removeMerchant(Long id) {
+        EntityManager em=emf.createEntityManager();
+        em.getTransaction().begin();
+            em.remove(em.find(Merchant.class,id));
+        em.getTransaction().commit();
 
+        System.out.println("Merchant Removed Successfully");
     }
 }

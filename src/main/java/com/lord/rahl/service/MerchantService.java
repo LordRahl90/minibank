@@ -8,6 +8,7 @@ import com.lord.rahl.domain.Merchant;
 public interface MerchantService {
     Iterable<Merchant> getAllMerchants();
 //    Merchant saveMerchant(Merchant merchant);
+    Merchant getOneMerchant(Long id);
     String saveMerchant(Merchant merchant);
     void removeMerchant(Long id);
 }
