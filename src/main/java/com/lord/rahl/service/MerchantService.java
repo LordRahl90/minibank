@@ -9,6 +9,7 @@ public interface MerchantService {
     Iterable<Merchant> getAllMerchants();
 //    Merchant saveMerchant(Merchant merchant);
     Merchant getOneMerchant(Long id);
+    Merchant getOneMerchant(String email, String password);
     String saveMerchant(Merchant merchant);
     void removeMerchant(Long id);
 }

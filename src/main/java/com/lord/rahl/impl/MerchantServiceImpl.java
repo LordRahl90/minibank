@@ -26,7 +26,7 @@ public class MerchantServiceImpl implements MerchantService {
     @Override
     public Iterable<Merchant> getAllMerchants() {
         EntityManager em=emf.createEntityManager();
-        return em.createQuery("from Merchant", Merchant.class).getResultList();
+        return em.createQuery("from merchants", Merchant.class).getResultList();
     }
 
     @Override
@@ -36,10 +36,22 @@ public class MerchantServiceImpl implements MerchantService {
     }
 
     @Override
+    public Merchant getOneMerchant(String email, String password) {
+        EntityManager em=emf.createEntityManager();
+        Query query=em.createQuery("select m from merchants m where m.email=:email and m.password=:password",
+                Merchant.class);
+        query.setParameter("email",email);
+        query.setParameter("password",password);
+
+        Merchant merchant=(Merchant) query.getSingleResult();
+        return merchant;
+    }
+
+    @Override
     public String saveMerchant(Merchant merchant) {
         EntityManager em=emf.createEntityManager();
 
-        Query q1=em.createQuery("select m from Merchant m where m.email=:email or m.phone=:phone",Merchant.class);
+        Query q1=em.createQuery("select m from merchants m where m.email=:email or m.phone=:phone",Merchant.class);
         q1.setParameter("email",merchant.getEmail());
         q1.setParameter("phone",merchant.getPhone());
 

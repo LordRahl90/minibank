@@ -7,6 +7,7 @@ import java.time.Instant;
  * Created by lordrahl on 12/10/2017.
  */
 @Entity
+@Table(name="merchants")
 public class Merchant implements DomainObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
