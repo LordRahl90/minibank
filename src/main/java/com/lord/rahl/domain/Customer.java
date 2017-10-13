@@ -2,6 +2,8 @@ package com.lord.rahl.domain;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by lordrahl on 12/10/2017.
@@ -24,8 +26,14 @@ public class Customer implements DomainObject {
     @ManyToOne(cascade = CascadeType.ALL)
     private Merchant merchant;
 
-    private Instant created=Instant.now();
-    private Instant updated=Instant.now();
+    @OneToMany(mappedBy = "customer")
+    List<TransactionManager> transactions;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created=new Date();
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updated=new Date();
 
     @Enumerated(EnumType.STRING)
     Role role;
@@ -88,23 +96,31 @@ public class Customer implements DomainObject {
         this.email = email;
     }
 
+    public List<TransactionManager> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<TransactionManager> transactions) {
+        this.transactions = transactions;
+    }
+
     @Override
-    public Instant getCreated() {
+    public Date getCreated() {
         return created;
     }
 
     @Override
-    public void setCreated(Instant created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
     @Override
-    public Instant getUpdated() {
+    public Date getUpdated() {
         return updated;
     }
 
     @Override
-    public void setUpdated(Instant updated) {
+    public void setUpdated(Date updated) {
         this.updated = updated;
     }
 

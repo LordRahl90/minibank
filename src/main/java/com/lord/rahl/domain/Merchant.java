@@ -2,6 +2,7 @@ package com.lord.rahl.domain;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,11 +26,17 @@ public class Merchant implements DomainObject {
     @Enumerated(EnumType.STRING)
     Role role;
 
-    private Instant created=Instant.now();
-    private Instant updated=Instant.now();
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created=new Date();
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updated=new Date();
 
     @OneToMany(mappedBy = "merchant")
     private List<Customer> customers;
+
+    @OneToMany(mappedBy = "merchant")
+    private List<TransactionManager> transactions;
 
     //empty constructor
     public Merchant(){
@@ -84,19 +91,23 @@ public class Merchant implements DomainObject {
         this.phone = phone;
     }
 
-    public Instant getCreated() {
+    @Override
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Instant created) {
+    @Override
+    public void setCreated(Date created) {
         this.created = created;
     }
 
-    public Instant getUpdated() {
+    @Override
+    public Date getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Instant updated) {
+    @Override
+    public void setUpdated(Date updated) {
         this.updated = updated;
     }
 
@@ -122,6 +133,14 @@ public class Merchant implements DomainObject {
 
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
+    }
+
+    public List<TransactionManager> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<TransactionManager> transactions) {
+        this.transactions = transactions;
     }
 
     @Override
