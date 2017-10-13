@@ -21,6 +21,9 @@ public class Merchant implements DomainObject {
     private String phone;
     private String password="pass7word";
 
+    @Enumerated(EnumType.STRING)
+    Role role;
+
     private Instant created=Instant.now();
     private Instant updated=Instant.now();
 
@@ -99,5 +102,13 @@ public class Merchant implements DomainObject {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

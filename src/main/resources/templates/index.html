@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link media="screen" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}" />
+    <link media="screen" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap-theme.min.css}" />
+    <link media="screen" rel="stylesheet" th:href="@{/webjars/datatables/1.10.15/css/jquery.dataTables.min.css}" />
+    <link media="screen" rel="stylesheet" th:href="@{/webjars/datatables/1.10.15/css/dataTables.bootstrap.min.css}" />
+    <title>MiniBank :: Welcome</title>
+</head>
+<body>
+<div class="container">
+    <p>Hello World</p>
+</div>
+<script th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/datatables/1.10.15/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/webjars/datatables/1.10.15/js/dataTables.bootstrap.min.js}"></script>
+<script>
+    $(function(){
+        $("#merchantTable").DataTable();
+    });
+</script>
+</body>
+</html>
