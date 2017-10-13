@@ -15,4 +15,13 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/denied")
+    public String denied(){
+        return "denied";
+    }
+
+    @GetMapping("/logout")
+    public String logout(){
+        return "redirect:/";
+    }
 }

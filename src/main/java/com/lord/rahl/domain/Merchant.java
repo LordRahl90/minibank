@@ -2,6 +2,7 @@ package com.lord.rahl.domain;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 /**
  * Created by lordrahl on 12/10/2017.
@@ -26,6 +27,9 @@ public class Merchant implements DomainObject {
 
     private Instant created=Instant.now();
     private Instant updated=Instant.now();
+
+    @OneToMany(mappedBy = "merchant")
+    private List<Customer> customers;
 
     //empty constructor
     public Merchant(){
@@ -110,5 +114,18 @@ public class Merchant implements DomainObject {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
+    @Override
+    public String toString(){
+        return "["+id+", "+phone+", "+email+", "+name+"]";
     }
 }

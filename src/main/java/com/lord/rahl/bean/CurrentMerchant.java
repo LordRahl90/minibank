@@ -2,6 +2,7 @@ package com.lord.rahl.bean;
 
 import com.lord.rahl.domain.Merchant;
 import com.lord.rahl.domain.Role;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 
@@ -12,11 +13,13 @@ import org.springframework.security.core.userdetails.User;
 public class CurrentMerchant extends User {
 
     private static final Long serialVersionUID=1L;
+
     private Merchant merchant;
 
 
     public CurrentMerchant(Merchant merchant){
         super(merchant.getEmail(),merchant.getPassword(), AuthorityUtils.createAuthorityList(merchant.getRole().toString()));
+        this.merchant=merchant;
     }
 
     public Merchant getMerchant(){

@@ -19,6 +19,7 @@ public class Customer implements DomainObject {
     private String fullname;
     private String phone;
     private String address;
+    private String email;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Merchant merchant;
@@ -45,26 +46,6 @@ public class Customer implements DomainObject {
 
     public void setVersion(Integer version) {
         this.version = version;
-    }
-
-    @Override
-    public void setCreated(Instant created) {
-
-    }
-
-    @Override
-    public Instant getCreated() {
-        return null;
-    }
-
-    @Override
-    public void setUpdated(Instant update) {
-
-    }
-
-    @Override
-    public Instant getUpdated() {
-        return null;
     }
 
     public String getFullname() {
@@ -99,6 +80,34 @@ public class Customer implements DomainObject {
         this.role = role;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public Instant getCreated() {
+        return created;
+    }
+
+    @Override
+    public void setCreated(Instant created) {
+        this.created = created;
+    }
+
+    @Override
+    public Instant getUpdated() {
+        return updated;
+    }
+
+    @Override
+    public void setUpdated(Instant updated) {
+        this.updated = updated;
+    }
+
     public Merchant getMerchant() {
         return merchant;
     }
@@ -107,5 +116,8 @@ public class Customer implements DomainObject {
         this.merchant = merchant;
     }
 
-
+    @Override
+    public String toString(){
+        return "["+id+" "+fullname+" "+phone+", "+email+", "+address+"]";
+    }
 }

@@ -14,4 +14,6 @@ public interface DomainObject {
 
     public void setUpdated(Instant update);
     public Instant getUpdated();
+
+    public String toString();
 }

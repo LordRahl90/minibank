@@ -46,23 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
             .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
-                .permitAll();
-
-//        http.authorizeRequests()
-//                .antMatchers("/customer/**").hasAuthority("CUSTOMER")
-//                .anyRequest().fullyAuthenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/customer/login")
-//                .defaultSuccessUrl("/customer/dashboard")
-//                .failureUrl("/customer/login?error")
-//                .usernameParameter("email")
-//                .permitAll()
-//                .and()
-//            .logout()
-//                .logoutUrl("/logout")
-//                .logoutSuccessUrl("/")
-//                .permitAll();
+                .permitAll()
+            .and()
+                .exceptionHandling()
+                .accessDeniedPage("/denied");
     }
 
     @Override

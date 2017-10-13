@@ -20,9 +20,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Customers <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/merchants/new-customer">New Customer</a></li>
+                        <li><a th:href="@{'/merchant/new-customer'}">New Customer</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">List Customers</a></li>
+                        <li><a th:href="@{'/merchant/customers'}">List Customers</a></li>
                     </ul>
                 </li>
 
@@ -30,9 +30,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Collections <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a th:href="@{'/admin/merchant/create'}">Post New</a></li>
+                        <li><a th:href="@{'/merchant/new-post'}">Post New</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a th:href="@{'/admin/merchant/list'}">List Postings</a></li>
+                        <li><a th:href="@{'/merchant/collections'}">List Postings</a></li>
                     </ul>
                 </li>
 
@@ -52,7 +52,7 @@
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Change Password</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Sign Out</a></li>
+                        <li><a href="/logout">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>
