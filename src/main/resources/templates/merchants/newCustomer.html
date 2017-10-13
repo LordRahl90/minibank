@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link media="screen" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}" />
+    <link media="screen" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap-theme.min.css}" />
+    <title>MiniBank:: New Customer</title>
+</head>
+<body>
+<div th:replace="merchants/fragments/header :: header">
+</div>
+<div class="container">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">
+                New Customer Record
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <form class="form-horizontal" id="newCustomerForm" th:action="${'/merchant/new-customer'}" th:object="${customer}">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label>Customer Fullname:</label>
+                    <input type="text" placeholder="Fullname" th:field="*{fullname}" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
+</body>
+</html>

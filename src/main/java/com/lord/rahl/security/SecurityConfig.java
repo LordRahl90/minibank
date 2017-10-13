@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/","/admin/**").permitAll()
-                .antMatchers("/merchants/**").hasAuthority("MERCHANT")
+                .antMatchers("/merchant/**").hasAuthority("MERCHANT")
                 .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
